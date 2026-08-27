@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+        <label for="fullname">Fullname_Customer</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="idpro">Id_Pro</label>
+        <input type="text" id="idpro" name="idpro" required>
+
+        <label for="namepro">Name_Pro</label>
+        <input type="text" id="namepro" name="namepro" required>
+
+        <label for="quantitypro">Quantity_Pro</label>
+        <input type="number" id="quantitypro" name="quantitypro" required>
+
+        <label for="pricepro">Price_Pro</label>
+        <input type="number" id="pricepro" name="pricepro" required>
+
+    <div>
+        <button type="button" value="Save" onclick="save()">Save</button>
+        <button type="button" value="Show" onclick="show()">Show</button>
+        <button type="reset" value="Reset" onclick="reset()">Reset</button>
+    </div>
+
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Auto_Increment</th>
+                    <th>Fullname_Customer</th>
+                    <th>Id_Pro</th>
+                    <th>Name_Pro</th>
+                    <th>Quantity_Pro</th>
+                    <th>Price_Pro</th>
+                    <th>Discount</th>
+                    <th>Amount</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody id="tbl"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng điểm của em</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>BANG DIEM CUA EM</h1>
+
+        <div class="row">
+            <label>Semester 1:</label>
+            <input type="number" id="semester1" min="0" max="10" step="1">
+        </div>
+
+        <div class="row">
+            <label>Semester 2:</label>
+            <input type="number" id="semester2" min="0" max="10" step="1">
+        </div>
+
+        <div class="row">
+            <label>Year:</label>
+            <select id="year">
+                <option>1</option>
+                <option>2</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label>Summarise:</label>
+            <input type="text" id="summary" readonly>
+        </div>
+
+        <div id="result"></div>
+
+        <div class="buttons">
+            <button onclick="calculate()">OK</button>
+            <button onclick="cancelForm()">Cancel</button>
+        </div>
+
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
