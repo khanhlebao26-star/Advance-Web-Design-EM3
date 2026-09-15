@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Product Store</h1>
+
+        <input 
+            type="text"
+            id="searchInput"
+            placeholder="Search product..."
+        >
+    </header>
+
+    <!-- PRODUCT LIST -->
+    <main>
+        <div id="productList" class="product-list"></div>
+    </main>
+
+    <!-- FORM -->
+    <section class="form-section">
+
+        <h2>Product Management</h2>
+
+        <form id="productForm">
+
+            <input type="hidden" id="productId">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Product name"
+                required
+            >
+
+            <input
+                type="text"
+                id="image"
+                placeholder="Image URL"
+                required
+            >
+
+            <input
+                type="text"
+                id="description"
+                placeholder="Description"
+                required
+            >
+
+            <input
+                type="number"
+                id="quantity"
+                placeholder="Quantity"
+                required
+            >
+
+            <input
+                type="number"
+                id="price"
+                placeholder="Price"
+                required
+            >
+
+            <button type="submit">
+                Save Product
+            </button>
+
+            <button
+                type="button"
+                id="cancleBtn"
+            >
+                Cancel
+            </button>
+        </form>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>

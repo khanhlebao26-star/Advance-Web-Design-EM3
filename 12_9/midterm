@@ -1,0 +1,21 @@
+- fetch api
+- sửa, xóa, tìm kiếm
+- oop, xử lí bất đồng bộ
+
+- giả xử:
+
+* có 1 class có 3 phần: tên class, các thuộc tính (id, name, image, description, quantity, price) kết nối mockapi rõ ràng, hàm (show - phải show trang web mẫu, add, update, delete)
+* sau khi có class thì vào mockapi để tạo data
+* cho một layout trang web ==> tự tổ chức class
+* show() phải show theo dạng mẫu
+* add, upt, del: viết một form table
+
+cho layout trang web
+
+| Chức năng | HTTP           | URL             | JS         |
+| --------- | -------------- | --------------- | ---------- |
+| Show/List | GET            | `/products`     | `fetch()`  |
+| Add       | POST           | `/products`     | `fetch()`  |
+| Update    | PUT            | `/products/:id` | `fetch()`  |
+| Delete    | DELETE         | `/products/:id` | `fetch()`  |
+| Search    | GET hoặc local | `/products`     | `filter()` |
