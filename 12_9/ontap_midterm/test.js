@@ -1,30 +1,32 @@
 const API_URL = "https://6aa80c499b08676cd32bcc26.mockapi.io/products";
 
+
 class Product {
     constructor(
         id,
-        name,
+        name, 
         image,
         description,
         quantity,
-        price,
+        price
     ) {
         this.id = id;
         this.name = name;
         this.image = image;
         this.description = description;
         this.quantity = quantity;
-        this.price = price;
+        this.price = price
     }
 }
 
-class ProductManager {
-    constructor(apiUrl){
+
+class Productmanager {
+    constructor(apiUrl) {
         this.apiUrl = apiUrl;
         this.products = [];
     }
 
-    show(products){
+    show(products) {
         const productList = document.getElementById("productList");
 
         productList.innerHTML = "";
@@ -34,10 +36,10 @@ class ProductManager {
                 <div class="product-card">
                     <img src="${product.image}">
 
-                    <div class="produc-info">
+                    <div class="product-info">
                         <h3 class="product-name">${product.name}</h3>
                         <p class="product-description">${product.description}</p>
-                        <p class="product-quantity">${product.quantity}</p>
+                        <p class="product-quanity">${product.quantity}</p>
                         <p class="product-price">${product.price}</p>
                     </div>
                 </div>
@@ -45,93 +47,111 @@ class ProductManager {
         })
     }
 
-    async getProduct(){
-        try {
-            const response = await fetch(this.apiUrl);
+    getProduct() {
+        return new Promise((resolve, reject) => {
+            fetch(this.apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Cannot get product")
+                }
+                return response.json();
+            })
+            .then(data => {
 
-            if (!response.ok){
-                throw new Error("Error")
-            }
-
-            const data = await response.json();
-
-            this.products = data.map(item => {
-                return new Product(
+                this.products = data.map(item => {
                     item.id,
-                    item.name,
                     item.image,
+                    item.name,
                     item.description,
                     item.quantity,
-                    item.price,
-                )
-            });
+                    item.price
+                })
+                this.show(this.products)
+                resolve(data);
+            })
 
-            this.show(this.products);
-        } catch (error) {
-            console.error(error);
-        }
+            .catch(error => {
+                reject(error)
+            }) 
+        })
     };
 
-    async addProduct(product){
-        try {
-            const response = await fetch(`${this.apiUrl}`, {
+    addProduct(product) {
+        return new Promise((resolve, reject) => {
+            fetch(this.apiUrl, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(product),
-            });
-
-            if (!response.ok){
-                throw new Error("Error")
-            }
-
-            await this.getProduct();
-        } catch (error) {
-            console.error(error);
-        }
+                body: JSON.stringify(product)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Cannot add product")
+                }
+                return response.json();
+            })
+            .then(data => {
+                this.getProduct();
+                resolve(data)
+            })
+            .catch(error => {
+                reject(error)
+            })
+        })
     };
 
-    async updateProduct(id, product) {
-        try {
-            const response = await fetch(`${this.apiUrl}/${id}`, {
+    updateProduct(id, product) {
+        return new Promise((resolve, reject) => {
+            fetch(`${this.apiUrl}/${id}`,{
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(product)
-            });
-
-            if (!response.ok){
-                throw new Error("Error")
-            }
-
-            await this.getProduct();
-        } catch (error) {
-            console.error(error);
-        }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Cannot update product")
+                }
+                return response.json();
+            })
+            .then(data => {
+                this.getProduct();
+                resolve(data);
+            })
+            .catch (error => {
+                reject(error)
+            })
+        })
     };
 
-    async deleteProduct(id){
-        try {
-            const response = await fetch(`${this.apiUrl}/${id}`, {
+    deleteProduct(id) {
+        return new Promise((resolve, reject) => {
+            fetch(`${this.apiUrl}/${id}`, {
                 method: "DELETE"
-            });
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Cannot delete product")
+                }
+                return response.json();
+            })
+            .then(data => {
+                this.getProduct();
+                resolve(data)
+            })
+            .catch(error => {
+                reject(error)
+            })
+        })
+    }
 
-            if (!response.ok){
-                throw new Error("Error")
-            }
-            
-            await this.getProduct();
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    searchProduct(keyword){
+    searchProduct(keyword) {
         const result = this.products.filter(product => {
-            return product.name.toLowerCase().includes(keyword.toLowerCase())
+            return product.name.toLowerCase().includes(keyword.toLowerCase());
         });
-
-        this.show(result);
+        this.show(result)
     }
 }
 
-const ProductManager = new ProductManager(API_URL);
+const productManager = new Productmanager(API_URL);
+
 productManager.getProduct();
+

@@ -62,12 +62,20 @@ class ProductManager {
 
                 <div class="product-info">
                     <h3 class="product-name">${product.name}</h3>
-                    <p class="product-description">${product.description}</p>
-                    <p class="product-quantity">${product.quantity}</p>
-                    <p class="product-price">${product.price}</p>
+
+                    <p class="product-description">
+                        ${product.description}
+                    </p>
+
+                    <p class="product-quantity">
+                        Quantity: ${product.quantity}
+                    </p>
+
+                    <p class="product-price">
+                        $${product.price}
+                    </p>
                 </div>
             </div>
-
             `;
         });
     }
@@ -157,3 +165,33 @@ productForm.addEventListener("submit", async (event) => {
     productForm.reset();
     document.getElementById("productId").value = "";
 })
+
+function editProduct(id) {
+    const product = productManager.products.find(product => {
+        return product.id === id;
+    });
+
+    if (!product) {
+        return;
+    }
+
+    document.getElementById("productId").value = product.id;
+    document.getElementById("name").value = product.name;
+    document.getElementById("image").value = product.image;
+    document.getElementById("description").value = product.description;
+    document.getElementById("quantity").value = product.quantity;
+    document.getElementById("price").value = product.price;
+}
+
+function deleteProduct(id) {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this product?"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    productManager.deleteProduct(id);
+}

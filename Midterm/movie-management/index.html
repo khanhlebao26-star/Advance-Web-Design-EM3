@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quản Lý Phim</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Ứng Dụng Xem Phim</h1>
+
+        <nav>
+            <a href="#">Trang Chủ</a>
+            <a href="#">Thể Loại</a>
+            <a href="#">Phim Mới</a>
+            <a href="#">Phim Hot</a>
+            <a href="#">Tài Khoản</a>
+
+        </nav>
+
+        <input
+            type="text"
+            id="timKiem"
+            placeholder="Tìm kiếm phim..."
+        >
+
+    </header>
+
+    <main>
+
+        <section class="form-section">
+
+            <h2>Quản Lý Phim</h2>
+
+            <form id="phimForm">
+
+                <input
+                    type="hidden"
+                    id="phimId"
+                >
+
+                <input
+                    type="text"
+                    id="tenPhim"
+                    placeholder="Tên phim"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="hinhAnh"
+                    placeholder="URL hình ảnh"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="moTa"
+                    placeholder="Mô tả phim"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="thoiLuong"
+                    placeholder="Thời lượng (phút)"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="namPhatHanh"
+                    placeholder="Năm phát hành"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="gia"
+                    placeholder="Giá"
+                    required
+                >
+
+                <button type="submit">
+                    Thêm Phim
+                </button>
+
+                <button
+                    type="button"
+                    id="huyBtn"
+                >
+                    Hủy
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="phim-section">
+
+            <h2>Danh Sách Phim</h2>
+
+            <div
+                id="phimList"
+                class="phim-list"
+            ></div>
+
+        </section>
+
+    </main>
+
+    <div id="movieModal" class="movie-modal">
+
+    <div class="movie-modal-content">
+
+        <button
+            type="button"
+            id="closeModal"
+            class="close-modal"
+        >
+            ×
+        </button>
+
+        <img
+            id="modalImage"
+            alt=""
+        >
+
+        <div class="modal-info">
+
+            <h2 id="modalName"></h2>
+
+            <p id="modalDescription"></p>
+
+            <p>
+                Thời lượng:
+                <span id="modalDuration"></span>
+                phút
+            </p>
+
+            <p>
+                Năm phát hành:
+                <span id="modalYear"></span>
+            </p>
+
+            <p>
+                Giá:
+                <span id="modalPrice"></span>
+            </p>
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="modalEdit"
+                >
+                    Sửa
+                </button>
+
+                <button
+                    type="button"
+                    id="modalDelete"
+                >
+                    Xóa
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,675 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #f1f2f5;
+
+    color: #222;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    height: 68px;
+
+    background-color: #18294a;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 20px;
+
+    gap: 30px;
+
+    border-bottom: 1px solid #ccc;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+header h1 {
+    font-size: 0;
+
+    width: 42px;
+    height: 42px;
+
+    border: 3px solid white;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+header h1::after {
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid white;
+
+    border-radius: 50%;
+
+    top: 7px;
+    left: 7px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+    flex: 1;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+
+/* =========================
+   QUẢN LÝ PHIM BUTTON
+========================= */
+
+#quanLyBtn {
+    background-color: #ff5a00;
+
+    color: white;
+
+    border: none;
+
+    padding: 9px 15px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+#quanLyBtn:hover {
+    background-color: #e94d00;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+#timKiem {
+    width: 220px;
+
+    height: 36px;
+
+    padding: 0 14px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    font-size: 13px;
+}
+
+#timKiem::placeholder {
+    color: #777;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 20px 25px 40px;
+}
+
+
+/* =========================
+   MOVIE SECTION
+========================= */
+
+.phim-section h2 {
+    display: none;
+}
+
+
+/* =========================
+   MOVIE LIST
+========================= */
+
+.phim-list {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+
+/* =========================
+   MOVIE CARD
+========================= */
+
+.phim-card {
+    background-color: #e7e8ec;
+
+    border-radius: 3px;
+
+    padding: 6px;
+
+    overflow: hidden;
+
+    min-width: 0;
+
+    transition: 0.2s;
+}
+
+.phim-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================
+   MOVIE IMAGE
+========================= */
+
+.phim-card img {
+    width: 100%;
+
+    height: 190px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 2px;
+}
+
+
+/* =========================
+   MOVIE INFO
+========================= */
+
+.phim-info {
+    padding: 8px 6px 5px;
+}
+
+
+/* =========================
+   MOVIE NAME
+========================= */
+
+.phim-name {
+    font-size: 15px;
+
+    line-height: 1.2;
+
+    margin-bottom: 5px;
+
+    color: #202020;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.phim-description {
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    color: #333;
+
+    height: 31px;
+
+    overflow: hidden;
+
+    margin-bottom: 6px;
+}
+
+
+/* =========================
+   DURATION
+========================= */
+
+.phim-duration {
+    font-size: 10px;
+
+    color: #555;
+
+    margin-bottom: 3px;
+}
+
+
+/* =========================
+   RELEASE YEAR
+========================= */
+
+.phim-releaseYear {
+    font-size: 10px;
+
+    color: #555;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   XEM NGAY
+========================= */
+
+.xem-ngay {
+    width: 100%;
+
+    height: 30px;
+
+    border: none;
+
+    border-radius: 2px;
+
+    background-color: #ff5a00;
+
+    color: white;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.xem-ngay:hover {
+    background-color: #e94d00;
+}
+
+
+/* =========================
+   FORM SECTION
+========================= */
+
+.form-section {
+    display: block;
+
+    background-color: white;
+
+    margin-bottom: 35px;
+
+    padding: 25px;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+.form-section h2 {
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+#phimForm {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    gap: 14px;
+
+    align-items: end;
+}
+
+#moTa {
+    grid-column: 1 / 3;
+}
+
+#hinhAnh {
+    grid-column: 3 / 5;
+}
+
+#tenPhim {
+    grid-column: 1 / 3;
+}
+
+
+/* Thời lượng */
+#thoiLuong {
+    grid-column: 3 / 4;
+}
+
+/* Năm phát hành */
+#namPhatHanh {
+    grid-column: 4 / 5;
+}
+
+/* Giá */
+#gia {
+    grid-column: 1 / 2;
+}
+
+/* Nút Thêm */
+#phimForm button[type="submit"] {
+    grid-column: 2 / 3;
+}
+
+/* Nút Hủy */
+#huyBtn {
+    grid-column: 3 / 4;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+#phimForm input:not([type="hidden"]) {
+    width: 100%;
+
+    height: 40px;
+
+    padding: 0 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 4px;
+
+    outline: none;
+
+    font-size: 13px;
+}
+
+#phimForm input:not([type="hidden"]):focus {
+    border-color: #18294a;
+}
+
+
+/* Mô tả chiếm 2 cột */
+
+#moTa {
+    grid-column: 1 / 3;
+}
+
+
+/* =========================
+   FORM BUTTON
+========================= */
+
+#phimForm button {
+    height: 40px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+/* Thêm phim */
+
+#phimForm button[type="submit"] {
+    background-color: #18294a;
+
+    color: white;
+}
+
+#phimForm button[type="submit"]:hover {
+    background-color: #243a68;
+}
+
+
+/* Hủy */
+
+#huyBtn {
+    background-color: #ddd;
+
+    color: #222;
+}
+
+#huyBtn:hover {
+    background-color: #ccc;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    header {
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    #timKiem {
+        width: 160px;
+    }
+
+    .phim-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .phim-card img {
+        height: 180px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    header {
+        height: auto;
+
+        padding: 15px;
+
+        flex-wrap: wrap;
+    }
+
+    nav {
+        order: 3;
+
+        width: 100%;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    #timKiem {
+        width: 180px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .phim-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .phim-card img {
+        height: 180px;
+    }
+
+    #phimForm {
+        grid-template-columns: 1fr;
+    }
+
+    #moTa {
+        grid-column: auto;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .phim-list {
+        grid-template-columns: 1fr;
+    }
+
+    .phim-card img {
+        height: 220px;
+    }
+}
+
+.movie-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.65);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.movie-modal.active {
+    display: flex;
+}
+
+.movie-modal-content {
+    position: relative;
+    display: flex;
+    gap: 25px;
+    width: min(700px, 100%);
+    padding: 25px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.movie-modal-content img {
+    width: 220px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.modal-info {
+    flex: 1;
+}
+
+.modal-info h2 {
+    margin-bottom: 15px;
+}
+
+.modal-info p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.close-modal {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+#modalEdit {
+    background-color: #18294a;
+}
+
+#modalDelete {
+    background-color: #d62828;
+}
+
+@media (max-width: 600px) {
+    .movie-modal-content {
+        flex-direction: column;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .movie-modal-content img {
+        width: 100%;
+        height: 260px;
+    }
+}
