@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>404 - TechStore</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <%- include("partials/navbar") %>
+
+    <main class="error-page">
+
+        <div class="error-content">
+
+            <p class="error-code">
+                404
+            </p>
+
+            <h1>
+                Page Not Found
+            </h1>
+
+            <p>
+                <%= message %>
+            </p>
+
+            <a href="/" class="error-button">
+                Back to Home
+            </a>
+
+        </div>
+
+    </main>
+
+    <%- include("partials/footer") %>
+
+</body>
+
+</html>

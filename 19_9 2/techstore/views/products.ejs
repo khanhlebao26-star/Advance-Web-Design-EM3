@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Products - TechStore</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <%- include("partials/navbar") %>
+
+
+    <main>
+
+        <h1>All Products</h1>
+
+        <p>Explore our technology products.</p>
+
+
+        <!-- FILTER FORM -->
+
+        <form
+            action="/products"
+            method="GET"
+            class="filter-form"
+        >
+
+            <!-- SEARCH -->
+
+            <input
+                type="text"
+                id="searchInput"
+                name="search"
+                placeholder="Search products..."
+                value="<%= search || "" %>"
+            >
+
+
+            <!-- CATEGORY -->
+
+            <select name="category">
+
+                <option
+                    value=""
+                    <%= !selectedCategory ? "selected" : "" %>
+                >
+                    All Categories
+                </option>
+
+
+                <% categories.forEach(category => { %>
+
+                    <option
+                        value="<%= category %>"
+                        <%= selectedCategory === category ? "selected" : "" %>
+                    >
+                        <%= category %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+
+            <!-- SORT -->
+
+            <select name="sort">
+
+                <option
+                    value=""
+                    <%= !selectedSort ? "selected" : "" %>
+                >
+                    Default
+                </option>
+
+
+                <option
+                    value="price_asc"
+                    <%= selectedSort === "price_asc" ? "selected" : "" %>
+                >
+                    Price: Low → High
+                </option>
+
+
+                <option
+                    value="price_desc"
+                    <%= selectedSort === "price_desc" ? "selected" : "" %>
+                >
+                    Price: High → Low
+                </option>
+
+            </select>
+
+
+            <button type="submit">
+                Filter
+            </button>
+
+        </form>
+
+
+        <!-- PRODUCTS -->
+
+        <section class="products-section">
+
+            <div
+                class="product-grid"
+                id="productGrid"
+            >
+
+                <% if (products.length === 0) { %>
+
+                    <p
+                        id="noResults"
+                        class="no-results"
+                    >
+                        No products found.
+                    </p>
+
+                <% } %>
+
+
+                <% products.forEach(product => { %>
+
+                    <div
+                        class="product-card"
+                        data-product-name="<%= product.name %>"
+                    >
+
+                        <img
+                            src="<%= product.image %>"
+                            alt="<%= product.name %>"
+                        >
+
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+
+                                <%= product.category %>
+
+                            </span>
+
+
+                            <h3>
+
+                                <%= product.name %>
+
+                            </h3>
+
+
+                            <p>
+
+                                <%= product.description %>
+
+                            </p>
+
+
+                            <strong>
+
+                                $<%= product.price %>
+
+                            </strong>
+
+                        </div>
+
+
+                        <a
+                            href="/products/<%= product.id %>"
+                            class="details-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                <% }) %>
+
+
+                <!-- MESSAGE FOR JAVASCRIPT SEARCH -->
+
+                <p
+                    id="jsNoResults"
+                    class="no-results"
+                    style="display: none;"
+                >
+                    No products found.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <%- include("partials/footer") %>
+
+
+    <script src="/js/products.js"></script>
+
+</body>
+
+</html>

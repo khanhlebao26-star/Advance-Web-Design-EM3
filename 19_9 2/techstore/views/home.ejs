@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>TechStore</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <%- include("partials/navbar") %>
+
+    <main>
+
+        <h1>Welcome to TechStore</h1>
+
+        <p>Upgrade Your Tech Life</p>
+
+        <a href="/products" class="btn">
+            Explore Products
+        </a>
+
+        <section class="products-section">
+
+            <h2>Featured Products</h2>
+
+            <div class="product-grid">
+
+                <% products.forEach(product => { %>
+
+                    <div class="product-card">
+
+                        <img
+                            src="<%= product.image %>"
+                            alt="<%= product.name %>"
+                        >
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                <%= product.category %>
+                            </span>
+
+                            <h3>
+                                <%= product.name %>
+                            </h3>
+
+                            <p>
+                                <%= product.description %>
+                            </p>
+
+                            <strong>
+                                $<%= product.price %>
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                <% }) %>
+
+            </div>
+
+        </section>
+    </main>
+    <%- include("partials/footer") %>
+    
+</body>
+</html>

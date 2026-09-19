@@ -213,44 +213,43 @@ class QuanLyPhim {
     }
 
     suaPhim(id) {
-
-    const phim = this.phims.find(
-        phim => phim.id == id
-    );
-
-    if (!phim) {
-        return;
-    }
-
-    document.getElementById("phimId").value =
-        phim.id;
-
-    document.getElementById("tenPhim").value =
-        phim.name;
-
-    document.getElementById("hinhAnh").value =
-        phim.image;
-
-    document.getElementById("moTa").value =
-        phim.description;
-
-    document.getElementById("thoiLuong").value =
-        phim.duration;
-
-    document.getElementById("namPhatHanh").value =
-        phim.releaseYear;
-
-    document.getElementById("gia").value =
-        phim.price;
-
-    const submitButton =
-        document.querySelector(
-            "#phimForm button[type='submit']"
+        const phim = this.phims.find(
+            phim => phim.id == id
         );
 
-    submitButton.textContent =
-        "Cập Nhật Phim";
-}
+        if (!phim) {
+            return;
+        }
+
+        document.getElementById("phimId").value =
+            phim.id;
+
+        document.getElementById("tenPhim").value =
+            phim.name;
+
+        document.getElementById("hinhAnh").value =
+            phim.image;
+
+        document.getElementById("moTa").value =
+            phim.description;
+
+        document.getElementById("thoiLuong").value =
+            phim.duration;
+
+        document.getElementById("namPhatHanh").value =
+            phim.releaseYear;
+
+        document.getElementById("gia").value =
+            phim.price;
+
+        const submitButton =
+            document.querySelector(
+                "#phimForm button[type='submit']"
+            );
+
+        submitButton.textContent =
+            "Cập Nhật Phim";
+    }
 
 }
 
@@ -296,43 +295,25 @@ phimForm.addEventListener(
         );
 
         if (id) {
-            quanLyPhim
-                .capNhatPhim(
-                    id,
-                    phim
-                )
-
+            quanLyPhim.capNhatPhim(id,phim)
                 .then(data => {
-
                     console.log(
                         "Update thành công:",
                         data
                     );
-
-
                     resetForm();
-
                 })
-
                 .catch(error => {
-
                     console.error(
                         error
                     );
-
                 });
-
         } else {
-
-            quanLyPhim
-
-                .themPhim(phim)
-                .then(data => {
-                    console.log(
-                        "Add thành công:",
-                        data
-                    );
-
+            quanLyPhim.themPhim(phim).then(data => {
+                console.log(
+                    "Add thành công:",
+                    data
+                );
                     resetForm();
                 })
                 .catch(error => {
@@ -344,35 +325,25 @@ phimForm.addEventListener(
     }
 );
 
-
 function resetForm() {
     phimForm.reset();
-    document.getElementById(
-        "phimId"
-    ).value = "";
+    document.getElementById("phimId").value = "";
 
     const submitButton =
         document.querySelector(
             "#phimForm button[type='submit']"
         );
 
-    submitButton.textContent =
-        "Thêm Phim";
+    submitButton.textContent = "Thêm Phim";
 }
 
-const huyBtn =
-    document.getElementById("huyBtn");
+const huyBtn = document.getElementById("huyBtn");
 
 huyBtn.addEventListener("click", () => {
-
     resetForm();
-
 });
 
-const timKiem =
-    document.getElementById(
-        "timKiem"
-    );
+const timKiem = document.getElementById("timKiem");
 
 timKiem.addEventListener(
     "input",
@@ -393,10 +364,6 @@ const modalDelete = document.getElementById("modalDelete");
 
 let selectedMovieId = null;
 
-
-// =========================
-// XEM CHI TIẾT PHIM
-// =========================
 
 const phimList = document.getElementById("phimList");
 
@@ -423,38 +390,23 @@ phimList.addEventListener("click", (event) => {
 
     selectedMovieId = phim.id;
 
-    // Đổ dữ liệu vào modal
-
     document.getElementById("modalImage").src =
         phim.image;
-
     document.getElementById("modalImage").alt =
         phim.name;
-
     document.getElementById("modalName").textContent =
         phim.name;
-
     document.getElementById("modalDescription").textContent =
         phim.description;
-
     document.getElementById("modalDuration").textContent =
         phim.duration;
-
     document.getElementById("modalYear").textContent =
         phim.releaseYear;
-
     document.getElementById("modalPrice").textContent =
         phim.price;
 
-    // Hiện modal
-
     movieModal.classList.add("active");
 });
-
-
-// =========================
-// ĐÓNG MODAL
-// =========================
 
 closeModal.addEventListener("click", () => {
 
@@ -462,23 +414,13 @@ closeModal.addEventListener("click", () => {
 
 });
 
-
-// Click ra ngoài modal để đóng
-
 movieModal.addEventListener("click", (event) => {
-
     if (event.target === movieModal) {
-
         movieModal.classList.remove("active");
-
     }
 
 });
 
-
-// =========================
-// SỬA PHIM
-// =========================
 
 modalEdit.addEventListener("click", () => {
 
@@ -488,10 +430,6 @@ modalEdit.addEventListener("click", () => {
 
 });
 
-
-// =========================
-// XÓA PHIM
-// =========================
 
 modalDelete.addEventListener("click", () => {
 

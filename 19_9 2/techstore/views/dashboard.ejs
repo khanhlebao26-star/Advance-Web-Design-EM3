@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard - TechStore</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <%- include("partials/navbar") %>
+
+
+    <main>
+
+        <h1>My Dashboard</h1>
+
+        <p>Manage your demo profile information.</p>
+
+
+        <section class="dashboard-card">
+
+            <img
+                class="user-avatar"
+                src="<%= user.avatar %>"
+                alt="<%= user.name %>"
+            >
+
+
+            <div class="user-info">
+
+                <h2>
+                    <%= user.name %>
+                </h2>
+
+                <p>
+                    <strong>Email:</strong>
+                    <%= user.email %>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <%= user.phone %>
+                </p>
+
+                <p>
+                    <strong>Address:</strong>
+                    <%= user.address %>
+                </p>
+
+                <a href="/dashboard/edit" class="edit-button">
+                    Edit Profile
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <%- include("partials/footer") %>
+
+</body>
+
+</html>

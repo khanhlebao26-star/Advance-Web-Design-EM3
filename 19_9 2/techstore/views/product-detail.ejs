@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title><%= product.name %> - TechStore</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <%- include("partials/navbar") %>
+
+
+    <main>
+
+        <section class="product-detail">
+
+            <div class="product-detail-image">
+
+                <img
+                    src="<%= product.image %>"
+                    alt="<%= product.name %>"
+                >
+
+            </div>
+
+
+            <div class="product-detail-info">
+
+                <span class="product-category">
+
+                    <%= product.category %>
+
+                </span>
+
+
+                <h1>
+
+                    <%= product.name %>
+
+                </h1>
+
+
+                <p class="product-detail-description">
+
+                    <%= product.description %>
+
+                </p>
+
+
+                <p class="product-detail-price">
+
+                    $<%= product.price %>
+
+                </p>
+
+
+                <p class="product-stock">
+
+                    Stock:
+                    <strong>
+                        <%= product.stock %>
+                    </strong>
+
+                </p>
+
+
+                <div class="product-actions">
+
+                    <a
+                        href="/products"
+                        class="btn"
+                    >
+                        ← Back to Products
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <%- include("partials/footer") %>
+
+</body>
+
+</html>
