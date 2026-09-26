@@ -59,8 +59,25 @@ const getProductDetail = (req, res) => {
     });
 };
 
+const getAddProductForm = (req, res) => {
+    res.render("add-product");
+};
+
+const addProduct = (req, res) => {
+    const newProduct = {
+        id: Date.now(),
+        name: req.body.name,
+        price: Number(req.body.price),
+        image: req.body.image
+    };
+
+    products.push(newProduct);
+    res.redirect('/products');
+}
 
 module.exports = {
     getProducts,
-    getProductDetail
+    getProductDetail,
+    getAddProductForm,
+    addProduct
 };
