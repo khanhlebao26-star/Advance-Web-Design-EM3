@@ -1,0 +1,71 @@
+<div class="product-card">
+
+    <div class="product-image-wrapper">
+
+        <img
+            src="<%= product.image %>"
+            alt="<%= product.name %>"
+            class="product-image"
+        >
+
+
+        <% if (product.isSale) { %>
+
+            <span class="sale-badge">
+                SALE
+            </span>
+
+        <% } %>
+
+    </div>
+
+
+    <div class="product-info">
+
+        <h3 class="product-name">
+            <%= product.name %>
+        </h3>
+
+
+        <div class="product-price">
+
+            <% if (product.oldPrice) { %>
+
+                <span class="old-price">
+                    <%= product.oldPrice.toLocaleString("vi-VN") %> đ
+                </span>
+
+            <% } %>
+
+
+            <span
+                class="<%= product.oldPrice ? 'sale-price' : 'normal-price' %>"
+            >
+                <%= product.price.toLocaleString("vi-VN") %> đ
+            </span>
+
+        </div>
+
+
+        <div class="product-actions">
+
+            <button
+                class="cart-button"
+                type="button"
+            >
+                🛒
+            </button>
+
+            <a
+                href="/products/<%= product._id %>"
+                class="details-button"
+            >
+                Details
+                <span>›</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

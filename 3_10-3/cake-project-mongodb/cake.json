@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Bánh Sachertorte",
+    "image": "/images/cakes/sachertorte.jpg",
+    "price": 220000,
+    "oldPrice": 250000,
+    "category": "Cake",
+    "description": "Bánh Sachertorte truyền thống.",
+    "isSale": true,
+    "isFeatured": false
+  },
+  {
+    "name": "Bánh Cupcake - Anh Quốc",
+    "image": "/images/cakes/cupcake.jpg",
+    "price": 120000,
+    "oldPrice": 150000,
+    "category": "Cake",
+    "description": "Cupcake phong cách Anh Quốc.",
+    "isSale": true,
+    "isFeatured": false
+  },
+  {
+    "name": "Bánh Táo - Mỹ",
+    "image": "/images/cakes/apple-cake.jpg",
+    "price": 200000,
+    "oldPrice": null,
+    "category": "Cake",
+    "description": "Bánh táo kiểu Mỹ.",
+    "isSale": false,
+    "isFeatured": false
+  },
+  {
+    "name": "Bánh Tiramisu - Italia",
+    "image": "/images/cakes/tiramisu.jpg",
+    "price": 200000,
+    "oldPrice": null,
+    "category": "Cake",
+    "description": "Tiramisu truyền thống Italia.",
+    "isSale": false,
+    "isFeatured": false
+  },
+  {
+    "name": "Bánh Crêpe Sầu Riêng",
+    "image": "/images/cakes/crepe-saurieng.jpg",
+    "price": 150000,
+    "oldPrice": 180000,
+    "category": "Crepe",
+    "description": "Bánh Crêpe nhân sầu riêng.",
+    "isSale": true,
+    "isFeatured": true
+  },
+  {
+    "name": "Bánh Crêpe Chocolate",
+    "image": "/images/cakes/crepe-chocolate.jpg",
+    "price": 140000,
+    "oldPrice": 170000,
+    "category": "Crepe",
+    "description": "Bánh Crêpe chocolate.",
+    "isSale": true,
+    "isFeatured": true
+  },
+  {
+    "name": "Bánh Crêpe Sầu Riêng - Chuối",
+    "image": "/images/cakes/crepe-saurieng-chuoi.jpg",
+    "price": 160000,
+    "oldPrice": 190000,
+    "category": "Crepe",
+    "description": "Bánh Crêpe sầu riêng và chuối.",
+    "isSale": true,
+    "isFeatured": true
+  },
+  {
+    "name": "Bánh Crêpe Pháp",
+    "image": "/images/cakes/crepe-phap.jpg",
+    "price": 180000,
+    "oldPrice": 220000,
+    "category": "Crepe",
+    "description": "Bánh Crêpe phong cách Pháp.",
+    "isSale": true,
+    "isFeatured": true
+  }
+]
